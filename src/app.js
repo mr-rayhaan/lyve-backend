@@ -98,7 +98,7 @@ app.post('/api/addItem', upload.single('image'), (req, res) => {
         },
         price: parseFloat(formData.price),
         image: `http://localhost:3001/${filePath}`,
-        customizations: newCustomizations,
+        customization: newCustomizations,
     };
 
     const existingData = JSON.parse(fs.readFileSync(dataFilePath));
@@ -108,6 +108,19 @@ app.post('/api/addItem', upload.single('image'), (req, res) => {
     res.status(200).json({ message: 'Data received and saved successfully' });
 });
 
+app.post('/api/deleteItem', (req, res) => {
+	console.log(req.body)
+	return;
+	const index = req.body;
+	if (index < 0 || index >= menuItems.length) {
+	  return res.status(404).json({ message: 'Item not found' });
+	}
+  
+	// Remove the item at the specified index
+	menuItems.splice(index, 1);
+  
+	res.json({ message: 'Item deleted successfully', menuItems });
+  });
 
 const validateFormData = (formData) => {
     // Add your validation logic here

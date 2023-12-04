@@ -203,7 +203,7 @@
     },
     "price": 1,
     "image": "http://localhost:3001/uploads/image-1701715790013-115901339.jpg",
-    "customizations": [
+    "customization": [
       {
         "name": {
           "en": "cne1",
