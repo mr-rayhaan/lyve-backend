@@ -1,0 +1,224 @@
+[
+  {
+    "name": {
+      "en": "Ramadan Combo",
+      "ar": "Ramadan Combo"
+    },
+    "description": {
+      "en": "Meals are served with a soup, Fattoush, dates, and a soft drink or water.  ",
+      "ar": "Meals are served with a soup, Fattoush, dates, and a soft drink or water.  "
+    },
+    "price": 49,
+    "image": "https://resizer.deliverect.com/T_QT6PZiajz49p9coLTsf1dnQTQudYV8SvJF13rwNsk/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvQmFyYmFyJTIwSW1hZ2UtNjQxYmViMzMyNzg2N2Y4MzM4YmQ4M2Y2LmpwZw==.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "Ramadan Combo Meal Options",
+          "ar": "Ramadan Combo Meal Options"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "Fassoliya Ramadan Meal",
+              "ar": "Fassoliya Ramadan Meal"
+            },
+            "price": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Balila",
+      "ar": "Balila"
+    },
+    "description": {
+      "en": "Whole chickpeas seasoned with spices, garlic toum and lemon.",
+      "ar": "Whole chickpeas seasoned with spices, garlic toum and lemon."
+    },
+    "price": 29,
+    "image": "https://resizer.deliverect.com/KDq1dHbLjczxB0FQC6JgEiFJDbjk20myaD0eOuz5mYg/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvYmFsaWxhLTYxOWI5ZTE0NzI1ZDk3MDAyNjA1YjM0ZC5KUEc=.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "Sides",
+          "ar": "Sides"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "Pickles Plate",
+              "ar": "Pickles Plate"
+            },
+            "price": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Fattet hummus",
+      "ar": "Fattet hummus"
+    },
+    "description": {
+      "en": "Whole chickpeas mixed with yogurt and fried crispy bread, topped with fried cashew nuts.",
+      "ar": "Whole chickpeas mixed with yogurt and fried crispy bread, topped with fried cashew nuts."
+    },
+    "price": 36,
+    "image": "https://resizer.deliverect.com/T_QT6PZiajz49p9coLTsf1dnQTQudYV8SvJF13rwNsk/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvQmFyYmFyJTIwSW1hZ2UtNjQxYmViMzMyNzg2N2Y4MzM4YmQ4M2Y2LmpwZw==.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "Dips & Sauces",
+          "ar": "Dips & Sauces"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "Tarator Dip",
+              "ar": "Tarator Dip"
+            },
+            "price": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Foul mudammas",
+      "ar": "Foul mudammas"
+    },
+    "description": {
+      "en": "Meals are served with a soup, Fattoush, dates, and a soft drink or water.  ",
+      "ar": "Meals are served with a soup, Fattoush, dates, and a soft drink or water.  "
+    },
+    "price": 34,
+    "image": "https://resizer.deliverect.com/pn7ueSJ5HeCTnNfHKQIHb0iZU-4970Ub6qyBlFgcgwg/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvZm9vbC02MTliOWIxMzFlYmMwMzAwMWQxZjQ0YWIuSlBH.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "Sides",
+          "ar": "Sides"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "Pickles Plate",
+              "ar": "Pickles Plate"
+            },
+            "price": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Labneh with thyme",
+      "ar": "Labneh with thyme"
+    },
+    "description": {
+      "en": "Mix of labneh and traditional thyme",
+      "ar": "Mix of labneh and traditional thyme"
+    },
+    "price": 22,
+    "image": "https://resizer.deliverect.com/3otH1qLTq_L8hv1heiIWjM6h6k0SodAE4R37hq3l0FE/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvbGFibmV3emF0YWFyLTYxOWJhNTg3MWViYzAzMDAxZDFmNDRjNS5KUEc=.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "No (Breakfast)",
+          "ar": "No (Breakfast)"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "No Olive Oil",
+              "ar": "No Olive Oil"
+            },
+            "price": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": {
+      "en": "Fassoliya",
+      "ar": "Fassoliya"
+    },
+    "description": {
+      "en": "Cannellini beans with garlic, coriander, tomato sauce, and beef shank, served with vermicelli rice.",
+      "ar": "Cannellini beans with garlic, coriander, tomato sauce, and beef shank, served with vermicelli rice."
+    },
+    "price": 39,
+    "image": "https://resizer.deliverect.com/GCSdctpXdoh3Yydp53YKdPcMzYBrY6ibAmIfi68i4g0/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvZmFzdWx5YS02NDFjMTgwODhmYzAyNDhkYmNlYWRkMGUuanBn.jpg"
+  },
+  {
+    "name": {
+      "en": "Kafta & Potato",
+      "ar": "Kafta & Potato"
+    },
+    "description": {
+      "en": "Kafta balls, potato cubes, sweet onions, and tomato sauce served with vermicelli rice. ",
+      "ar": "Kafta balls, potato cubes, sweet onions, and tomato sauce served with vermicelli rice. "
+    },
+    "price": 36,
+    "image": "https://resizer.deliverect.com/MI2Ofvx_O4aOzLLw0dp5-xbWVYZivfwn3qayvAAcKwE/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMva2FmdGElMjBwb3RhdG8tNjQxYzE4MDg4ZmMwMjQ4ZGJjZWFkZDBkLmpwZw==.jpg"
+  },
+  {
+    "name": {
+      "en": "Moghrabiye",
+      "ar": "Moghrabiye"
+    },
+    "description": {
+      "en": "Moghrabiye dough, chickpeas, and chicken gravy sauce with two chicken thighs.",
+      "ar": "Moghrabiye dough, chickpeas, and chicken gravy sauce with two chicken thighs."
+    },
+    "price": 25,
+    "image": "https://resizer.deliverect.com/P7QaJUUUYDN4yXETYDdFKYMgJ48k3qO35OBq4igSQew/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvbW9naHJhYmV5ZS02NDFjMTgwODhmYzAyNDhkYmNlYWRkMDkuanBn.jpg"
+  },
+  {
+    "name": {
+      "en": "Molokhiye",
+      "ar": "Molokhiye"
+    },
+    "description": {
+      "en": "Molokhiye leaves, garlic, red chili, coriander, and chicken, served with vermicelli rice.",
+      "ar": "Molokhiye leaves, garlic, red chili, coriander, and chicken, served with vermicelli rice."
+    },
+    "price": 30,
+    "image": "https://resizer.deliverect.com/8FsO0GX0yWU7OP4KPAGPoVYBCXLaH5WacHHGHhZTSik/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1wcm9kdWN0aW9uL2ltYWdlcy82MGUyYjE2M2VlMDM5YTEzYzFkNzdjMmMvbXVsdWtqZXllLTY0MWMxODA4OGZjMDI0OGRiY2VhZGQwYi5qcGc=.jpg"
+  },
+  {
+    "name": {
+      "en": "p",
+      "ar": "p"
+    },
+    "description": {
+      "en": "p",
+      "ar": "p"
+    },
+    "price": 1,
+    "image": "http://localhost:3001/uploads/image-1701677711192-538880153.jpg",
+    "customization": [
+      {
+        "name": {
+          "en": "p",
+          "ar": "p"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "p",
+              "ar": "p"
+            },
+            "price": 1
+          }
+        ]
+      }
+    ]
+  }
+]
