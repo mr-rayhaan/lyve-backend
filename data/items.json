@@ -202,18 +202,33 @@
       "ar": "p"
     },
     "price": 1,
-    "image": "http://localhost:3001/uploads/image-1701677711192-538880153.jpg",
-    "customization": [
+    "image": "http://localhost:3001/uploads/image-1701715790013-115901339.jpg",
+    "customizations": [
       {
         "name": {
-          "en": "p",
-          "ar": "p"
+          "en": "cne1",
+          "ar": "cna1"
         },
         "variants": [
           {
             "name": {
-              "en": "p",
-              "ar": "p"
+              "en": "vne1",
+              "ar": "vna1"
+            },
+            "price": 1
+          }
+        ]
+      },
+      {
+        "name": {
+          "en": "cne2",
+          "ar": "cna2"
+        },
+        "variants": [
+          {
+            "name": {
+              "en": "vne2",
+              "ar": "vna2"
             },
             "price": 1
           }
