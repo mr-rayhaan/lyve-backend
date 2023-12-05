@@ -7,6 +7,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const dataFilePath = 'data/items.json';
 const multer = require('multer');
+const base_url = process.env.BASE_URL || 'http://localhost:3001';
+const path = require('path');
 
 app.use(express.json());
 app.use(cors());
@@ -33,8 +35,19 @@ app.get('/api/', async (req, res) => {
 	  // Parse the JSON data
 	  const jsonData = JSON.parse(data);
   
+	      // Prefix the image URLs with the base URL only if they start with 'uploads/'
+		  const dataWithPrefixedImage = jsonData.map(item => {
+			if (item.image && item.image.startsWith('uploads/')) {
+			  return {
+				...item,
+				image: `${base_url}/${item.image}`
+			  };
+			} else {
+			  return item;
+			}
+		  });
 	  // Send the JSON data as the response
-	  res.json(jsonData);
+	  res.json(dataWithPrefixedImage);
 	} catch (error) {
 	  console.error('Error reading JSON file:', error);
 	  res.status(500).json({ error: 'Internal Server Error' });
@@ -97,7 +110,7 @@ app.post('/api/addItem', upload.single('image'), (req, res) => {
             ar: formData.description_ar,
         },
         price: parseFloat(formData.price),
-        image: `http://localhost:3001/${filePath}`,
+        image: filePath,
         customization: newCustomizations,
     };
 
@@ -108,19 +121,29 @@ app.post('/api/addItem', upload.single('image'), (req, res) => {
     res.status(200).json({ message: 'Data received and saved successfully' });
 });
 
-app.post('/api/deleteItem', (req, res) => {
-	console.log(req.body)
-	return;
-	const index = req.body;
+app.post('/api/deleteItem', async (req, res) => {
+
+	const index = req.body.index
+	
+	const menuItems = JSON.parse(await fs_promises.readFile(dataFilePath, 'utf-8'));
+
 	if (index < 0 || index >= menuItems.length) {
 	  return res.status(404).json({ message: 'Item not found' });
 	}
-  
+	const deletedItem = menuItems[index];
 	// Remove the item at the specified index
 	menuItems.splice(index, 1);
+	  // If the item has a local image path, delete the image file
+	if (deletedItem.image && deletedItem.image.startsWith('uploads/')) {
+		const imagePath = path.join(__dirname, '..', deletedItem.image);
+		await fs_promises.unlink(imagePath);
+	}
+
+	// Write the updated object back to the JSON file
+	await fs_promises.writeFile(dataFilePath, JSON.stringify(menuItems, null, 2), 'utf-8');
   
 	res.json({ message: 'Item deleted successfully', menuItems });
-  });
+});
 
 const validateFormData = (formData) => {
     // Add your validation logic here
