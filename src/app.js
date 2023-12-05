@@ -144,6 +144,31 @@ app.post('/api/deleteItem', async (req, res) => {
   
 	res.json({ message: 'Item deleted successfully', menuItems });
 });
+app.get('/api/getItemByIndex/:index', async (req, res) => {
+	try {
+	  const index = parseInt(req.params.index);
+  
+	  // Read the JSON data from the file
+	  const jsonData = await fs_promises.readFile(dataFilePath, 'utf-8');
+  
+	  // Parse the JSON data into an object
+	  const menuItems = JSON.parse(jsonData);
+  
+	  // Check if the index is valid
+	  if (index < 0 || index >= menuItems.length) {
+		return res.status(404).json({ message: 'Item not found' });
+	  }
+  
+	  // Retrieve the item at the specified index
+	  const selectedItem = menuItems[index];
+  
+	  res.json({ message: 'Item retrieved successfully', selectedItem });
+	} catch (error) {
+	  console.error('Error retrieving item:', error);
+	  res.status(500).json({ message: 'Internal server error' });
+	}
+  });
+  
 
 const validateFormData = (formData) => {
     // Add your validation logic here
