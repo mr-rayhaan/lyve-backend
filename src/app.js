@@ -34,11 +34,27 @@ app.get('/api/', async (req, res) => {
 	  
 	  // Parse the JSON data
 	  const jsonData = JSON.parse(data);
+
+        // Pagination parameters
+        const page = parseInt(req.query.page) || 1; // default to page 1 if not specified
+        const limit = parseInt(req.query.limit) || 5; // default to 10 items per page
+    
+        // Calculate start and end index for pagination
+        const startIndex = (page - 1) * limit;
+        const endIndex = page * limit;
+    
+        // Get the current page of items
+        const paginatedData = jsonData.slice(startIndex, endIndex);
   
 		// Prefix the image URLs with the base URL only if they start with 'uploads/'
-		const dataWithPrefixedImage = prefixImages(jsonData)
-	  // Send the JSON data as the response
-	  res.json(dataWithPrefixedImage);
+		const dataWithPrefixedImage = prefixImages(paginatedData)
+	      // Send the paginated JSON data as the response
+        res.json({
+          totalItems: jsonData.length,
+          totalPages: Math.ceil(jsonData.length / limit),
+          currentPage: page,
+          data: dataWithPrefixedImage
+        });
 	} catch (error) {
 	  console.error('Error reading JSON file:', error);
 	  res.status(500).json({ error: 'Internal Server Error' });
