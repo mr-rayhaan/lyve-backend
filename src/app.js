@@ -35,17 +35,8 @@ app.get('/api/', async (req, res) => {
 	  // Parse the JSON data
 	  const jsonData = JSON.parse(data);
   
-	      // Prefix the image URLs with the base URL only if they start with 'uploads/'
-		  const dataWithPrefixedImage = jsonData.map(item => {
-			if (item.image && item.image.startsWith('uploads/')) {
-			  return {
-				...item,
-				image: `${base_url}/${item.image}`
-			  };
-			} else {
-			  return item;
-			}
-		  });
+		// Prefix the image URLs with the base URL only if they start with 'uploads/'
+		const dataWithPrefixedImage = prefixImages(jsonData)
 	  // Send the JSON data as the response
 	  res.json(dataWithPrefixedImage);
 	} catch (error) {
@@ -159,15 +150,87 @@ app.get('/api/getItemByIndex/:index', async (req, res) => {
 		return res.status(404).json({ message: 'Item not found' });
 	  }
   
-	  // Retrieve the item at the specified index
-	  const selectedItem = menuItems[index];
+	  // Prefix the image URLs with the base URL only if they start with 'uploads/'
+	const selectedItem = prefixImages(menuItems[index])
   
 	  res.json({ message: 'Item retrieved successfully', selectedItem });
 	} catch (error) {
 	  console.error('Error retrieving item:', error);
 	  res.status(500).json({ message: 'Internal server error' });
 	}
-  });
+});
+app.post('/api/updateItem', upload.single('image'), async (req, res) => {
+
+	const formData = req.body;
+  const index = Number(formData.index)
+  const file = req.file;
+
+	const existingData = JSON.parse(fs.readFileSync(dataFilePath));
+  //Check if the index is valid
+  if (index < 0 || index >= existingData.length) {
+    return res.status(404).json({ message: 'Item not found' });
+  }
+	const newCustomizations = [];
+  let customizationIndex = 0;
+
+  // Iterate over customizations and variants dynamically
+  while (formData[`customization_name_en_${customizationIndex}`] !== undefined) {
+      const newCustomization = {
+          name: {
+              en: formData[`customization_name_en_${customizationIndex}`] || existingData[index].customization[customizationIndex].name.en,
+              ar: formData[`customization_name_ar_${customizationIndex}`] || existingData[index].customization[customizationIndex].name.ar,
+          },
+          variants: [],
+      };
+
+      let variantIndex = 0;
+
+      while (formData[`variant_name_en_${customizationIndex}_${variantIndex}`] !== undefined) {
+          const newVariant = {
+              name: {
+                  en: formData[`variant_name_en_${customizationIndex}_${variantIndex}`] || existingData[index].customization[customizationIndex].variants[variantIndex].name.en,
+                  ar: formData[`variant_name_ar_${customizationIndex}_${variantIndex}`] || existingData[index].customization[customizationIndex].variants[variantIndex].name.ar,
+              },
+              price: parseFloat(formData[`variant_price_${customizationIndex}_${variantIndex}`])  || existingData[index].customization[customizationIndex].variants[variantIndex].price,
+          };
+
+          newCustomization.variants.push(newVariant);
+          variantIndex++;
+      }
+
+      newCustomizations.push(newCustomization);
+      customizationIndex++;
+  }
+	let filePath = '';
+	if (file) {
+    //Store the image file on server
+		filePath = `uploads/${file.filename}`;
+		fs.renameSync(file.path, filePath);
+    //Delete the previous image if it exists
+    if (existingData[index].image && existingData[index].image.startsWith('uploads/')) {
+      const imagePath = path.join(__dirname, '..', existingData[index].image);
+      await fs_promises.unlink(imagePath);
+    }
+	}
+	
+	const newItem = {
+        name: {
+            en: formData.name_en || existingData[index].name.en,
+            ar: formData.name_ar|| existingData[index].name.ar,
+        },
+        description: {
+            en: formData.description_en || existingData[index].description.en,
+            ar: formData.description_ar || existingData[index].description.en,
+        },
+        price: parseFloat(formData.price) || existingData[index].price,
+        image: filePath === '' ? existingData[index].image : filePath,
+        customization: newCustomizations,
+    };
+
+	existingData[index] = {...newItem}
+	fs.writeFileSync(dataFilePath, JSON.stringify(existingData, null, 2));
+	return res.json({ message: 'Item updated' }); 
+})
   
 
 const validateFormData = (formData) => {
@@ -198,8 +261,34 @@ const validateFormData = (formData) => {
 
     return true;
 };
+const prefixImages = (jsonData) => {
+	if (Array.isArray(jsonData)) {
+		return jsonData.map(item => {
+			if (item.image && item.image.startsWith('uploads/')) {
+			  return {
+				...item,
+				image: `${base_url}/${item.image}`
+			  };
+			} else {
+			  return item;
+			}
+		  });
+	} else if (typeof jsonData === 'object' && jsonData !== null) {
+		// If jsonData is an object
+		if (jsonData.image && jsonData.image.startsWith('uploads/')) {
+		  return {
+			...jsonData,
+			image: `${base_url}/${jsonData.image}`
+		  };
+		} else {
+		  return jsonData;
+		}
+	} else {
+		// Handle other cases (e.g., jsonData is not an array or object)
+		return jsonData;
+	}
 
-
+}
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
